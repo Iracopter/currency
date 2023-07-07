@@ -12,19 +12,29 @@
 
 .Title{
   display: flex;
-  height: 100px;
   background-color: white;
-  border-bottom: 10px #00d4ff;
+}
+
+h1{
+  background-color: #00d4ff;
+  color: white;
+  height: 100%;
+  font-size: 70px;
 }
 
 .Title button{
-  position: fixed;
-  top: 20px;
-  right: 30px;
+  margin: 1vw;
 }
 
-.Title h4{
-  margin: 40px 90px;
+.links{
+  display: flex;
+  justify-content: space-between;
+}
+
+h4{
+  margin-left: 6vw;
+  margin-right: 6vw;
+  margin-top: 3vw;
 }
 
 h4:hover{
@@ -34,10 +44,9 @@ h4:hover{
 
 .Select{
   display: flex;
-  padding-left: 25%;
-  margin:auto;
-  padding-top: 100px;
-  margin-bottom: 100px;
+  justify-content: center;
+  padding-top: 6vw;
+  margin-bottom: 6vw;
 }
 
 .Select button{
@@ -45,16 +54,17 @@ h4:hover{
 }
 
 table,
-td {
-    border: 1px solid #333;
+td, th {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
 
-h1{
-  background-color: #00d4ff;
-  color: white;
-  height: 100%;
-  font-size: 70px;
+th:nth-child(even),td:nth-child(even) {
+  background-color: #ccf5fd;
 }
+
 
 button{
   border-radius: 25px;
@@ -70,4 +80,8 @@ button:hover{
 
 select{
   background-color: white;
+}
+
+.tableBlock{
+  display: block;
 }

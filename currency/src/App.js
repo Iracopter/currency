@@ -2,6 +2,8 @@ import './App.css';
 import Head from './Components/header';
 import Selectors from './Components/selectors';
 import CurrencyTable from './Components/table';
+import Form from './Components/form';
+
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <Head/>
       <Selectors/>
       <CurrencyTable/>
+      <Form/>
     </div>
   );
 }
