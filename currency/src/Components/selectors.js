@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import get_Info from "../api";
 
 
+
 function Selectors(){
     const [currencyData, setCurrencyData] = useState([]);
+    const [inputData, setInputData]=useState('');
+    const [selectedCurrency, setSelectedCurrency] = useState('');
 
     useEffect(() => {
         async function fetchData() {
@@ -13,21 +16,31 @@ function Selectors(){
 
     fetchData();
   }, []);
+
+  const handleInputChange = (event) => {
+    setInputData(event.target.value);
+  };
+
+  const handleCurrencyChange = (event) => {
+    const selectedCurrency = event.target.value;
+    setSelectedCurrency(selectedCurrency);
+  };
+
     return(
         <div className="Select">
             <select>
                 {Object.entries(currencyData).map(([currency, rate]) => (
-                <option value={rate}>{currency}</option>
+                <option key={currency} value={rate}>{currency}</option>
                 ))}
             </select>
-            <input type="text"></input>
+            <input type="text" value={inputData} onChange={handleInputChange}></input>
             <button>Exchange</button>
-            <select>
-                {Object.entries(currencyData).map(([currency, rate]) => (
-                <option value={rate}>{currency}</option>
-                ))}
-            </select>
-            <input type="text"></input>
+                    <select value={selectedCurrency} onChange={handleCurrencyChange}>
+                        {Object.entries(currencyData).map(([currency, rate]) => (
+                            <option key={currency} value={rate}>{currency}</option>
+                        ))}
+                    </select>
+            <input type="text" value={inputData*selectedCurrency} readOnly></input>
         </div>
     )
 }
